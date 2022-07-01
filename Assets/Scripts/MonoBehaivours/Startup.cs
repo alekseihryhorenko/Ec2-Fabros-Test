@@ -22,7 +22,9 @@ public class Startup : MonoBehaviour
         initSystems.Init();
 
         updateSystems = new EcsSystems(ecsWorld, gameData)
-            .Add(new InputSystem());
+            .Add(new InputSystem())
+            .Add(new PlayerStartMovingSystem())
+            .DelHere<MouseInputEvent>();
 
         updateSystems.Init();
 
